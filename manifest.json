@@ -1,0 +1,21 @@
+{
+  "name": "Desafio Piperun extensao",
+  "description": "Criar extensao em html que se conecte com o sistema PipeRun",
+  "version": "1.0",
+  "manifest_version": 3,
+  "permissions": ["activeTab", "scripting", "storage"],
+  "background": {
+    "service_worker": "js/background.js"
+  },
+  "action": {
+    "default_icon": "assets/logo-32.png",
+    "default_popup": "index.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://app.pipe.run/*"],
+      "css": ["styles.css"],
+      "js": ["js/index.js", "js/background.js", "js/insert_content.js"]
+    }
+  ]
+}
